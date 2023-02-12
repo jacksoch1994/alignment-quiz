@@ -1,0 +1,3 @@
+STRT|null|Hug the puppy.|0|1
+STRT|null|Be indifferent towards the puppy.|0|0
+STRT|null|Kick the puppy.|0|-1
