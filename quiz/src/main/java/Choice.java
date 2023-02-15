@@ -3,9 +3,6 @@ public class Choice {
     ########################################   Attributes   ##########################################
      */
 
-    private String parentScenario;
-    private String nextScenario = null;
-
     private String description;
 
     private int lawChaosModifier = 0;
@@ -15,15 +12,6 @@ public class Choice {
     /*
     ######################################## Getter Methods ##########################################
      */
-
-
-    public String getParentScenario() {
-        return parentScenario;
-    }
-
-    public String getNextScenario() {
-        return nextScenario;
-    }
 
     public int getLawChaosModifier() {
         return lawChaosModifier;
@@ -41,16 +29,10 @@ public class Choice {
     ########################################   Constructor   ##########################################
      */
 
-    public Choice(String parentScenario, String description, int lawChaosModifier, int goodEvilModifier) {
+    public Choice(String description, int lawChaosModifier, int goodEvilModifier) {
         this.description = description;
         this.lawChaosModifier = lawChaosModifier;
         this.goodEvilModifier = goodEvilModifier;
-        this.parentScenario = parentScenario;
-    }
-
-    public Choice(String parentScenario, String nextScenario, String description, int lawChaosModifier, int goodEvilModifier) {
-        this(parentScenario, description, lawChaosModifier, goodEvilModifier);
-        this.nextScenario = nextScenario;
     }
 
 }

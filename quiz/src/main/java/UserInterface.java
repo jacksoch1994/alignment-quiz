@@ -10,7 +10,7 @@ public class UserInterface {
         System.out.println(message);
     }
 
-    public int getUserChoice(Scenario scene) {
+    public int getUserChoice(Scene scene) {
         List<Choice> choices = scene.getChoices();
 
         while (true) {
@@ -40,12 +40,24 @@ public class UserInterface {
 
     }
 
+    public void prompt(String prompt) {
+        System.out.println(prompt);
+    }
+
+    public void promptWithAcknowledgement(String prompt) {
+        System.out.print(prompt);
+        in.nextLine();
+    }
+
     private void displayChoices(List<Choice> choices) {
         int choiceCount = 1;
         for (Choice choice : choices) {
             System.out.printf("(%d) %s\n", choiceCount++, choice.getDescription());
         }
     }
+
+
+
 
     /*
     #####################################  Validation Methods  #######################################

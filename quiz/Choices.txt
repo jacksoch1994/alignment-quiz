@@ -1,3 +1,6 @@
 STRT|null|Hug the puppy.|0|1
 STRT|null|Be indifferent towards the puppy.|0|0
-STRT|null|Kick the puppy.|0|-1
+STRT|KICK|Kick the puppy.|0|-1
+KICK|null|Apologize to the druid because that's what you do when you harm someone.|1|0
+KICK|null|Apologize to him to get him off your back.|0|0
+KICK|null|Kick him again.|-1|-1

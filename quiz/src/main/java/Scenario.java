@@ -1,71 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Scenario {
 
-    /*
-    ########################################   Attributes   ##########################################
-     */
+    private Scene startScene;
+    private String description;
 
-    private String identifier;
-    private String description = "";
-
-    private List<Choice> choices = new ArrayList<>();
-
-    boolean isStartingScenario = false;
-
-    /*
-    ######################################## Getter Methods ##########################################
-     */
+    public Scene getStartScene() {
+        return startScene;
+    }
 
     public String getDescription() {
         return description;
     }
 
-    public List<Choice> getChoices() {
-        return choices;
-    }
 
-    public String getIdentifier() {
-        return identifier;
-    }
-
-
-    /*
-    ######################################## Setter Methods ##########################################
-     */
-
-    public void setDescription(String description) {
+    public Scenario(String description, Scene startScene) {
         this.description = description;
+        this.startScene = startScene;
     }
-
-    /*
-    ########################################  Other Methods  ##########################################
-     */
-
-    public void addChoice(Choice choice) {
-        choices.add(choice);
-    }
-
-
-    /*
-    ########################################   Constructor   ##########################################
-     */
-
-    public Scenario(String identifier) {
-        this.identifier = identifier;
-    }
-
-    public Scenario(String identifier, boolean isStartingScenario) {
-        this(identifier);
-        this.isStartingScenario = isStartingScenario;
-    }
-
-    public Scenario(String identifier, boolean isStartingScenario, String description) {
-        this(identifier, isStartingScenario);
-        this.description = description;
-    }
-
-
-
 }

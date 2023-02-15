@@ -1,0 +1,2 @@
+STRT|You come upon a strange clearing with nothing in it but a puppy.|true
+KICK|With a yelp, the injured puppy reveals its true form, a shape-shifting druid. He starts shouting obscenities at you.|false
