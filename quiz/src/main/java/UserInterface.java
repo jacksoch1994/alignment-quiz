@@ -3,11 +3,18 @@ import java.util.Scanner;
 
 public class UserInterface {
 
+    private final int MAX_LINE_CHARACTER_COUNT = 88;
+
     Scanner in = new Scanner(System.in);
 
 
     public void display(String message) {
-        System.out.println(message);
+        if (message.length() > MAX_LINE_CHARACTER_COUNT) {
+            displayParagraph(message);
+        } else {
+            System.out.println(message);
+        }
+
     }
 
     public int getUserChoice(Scene scene) {
@@ -23,14 +30,20 @@ public class UserInterface {
 
             //See if input can be converted to integer. If not, continue to the next loop iteration and prompt again.
             if (!isValidIntegerInput(userResponse)) {
-                display("\nInvalid input. Please provide an integer to select your choice.\n");
+                banner();
+                display("Invalid input. Please provide an integer to select your choice.\n");
+                display(scene.getDescription());
+                display("\nWhat do you do?\n");
                 continue;
             }
 
             //Convert to integer and check if the integer matches one of the choices presented on screen.
             int choiceIndex = Integer.parseInt(userResponse);
             if (choiceIndex < 1 || choiceIndex > choices.size()) {
-                display("\nInvalid input. Please provide the number of the option you wish to pick.\n");
+                banner();
+                display("Invalid input. Please provide the number of the option you wish to pick.\n");
+                display(scene.getDescription());
+                display("\nWhat do you do?\n");
                 continue;
             }
 
@@ -38,10 +51,6 @@ public class UserInterface {
             return choiceIndex - 1;
         }
 
-    }
-
-    public void prompt(String prompt) {
-        System.out.println(prompt);
     }
 
     public void promptWithAcknowledgement(String prompt) {
@@ -54,6 +63,32 @@ public class UserInterface {
         for (Choice choice : choices) {
             System.out.printf("(%d) %s\n", choiceCount++, choice.getDescription());
         }
+    }
+
+    public void banner() {
+        System.out.println("\n**************************************************************************\n");
+    }
+
+    public void displayParagraph(String para) {
+        StringBuilder output = new StringBuilder();
+        String[] words = para.split(" ");
+
+        int lineCount = output.length();
+
+        for (String word : words) {
+
+            if (word.length() + lineCount > MAX_LINE_CHARACTER_COUNT) {
+                output.append("\n");
+                lineCount = word.length() + 1;
+            }
+
+            output.append(word);
+            output.append(" ");
+            lineCount += word.length() + 1;
+
+        }
+
+        System.out.println(output);
     }
 
 

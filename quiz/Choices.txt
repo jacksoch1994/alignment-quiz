@@ -1,6 +1,11 @@
-STRT|null|Hug the puppy.|0|1
-STRT|null|Be indifferent towards the puppy.|0|0
-STRT|KICK|Kick the puppy.|0|-1
-KICK|null|Apologize to the druid because that's what you do when you harm someone.|1|0
-KICK|null|Apologize to him to get him off your back.|0|0
-KICK|null|Kick him again.|-1|-1
+GOVT|TURN|This technology is not worth the potential risk to our stability. My people must come first. Turn him away.|1|0
+GOVT|ACPT|I do not care one way or the other. Let them do as they please.|0|0
+GOVT|ACPT|The potential for this land's growth is worth the risk to stability. My people will make due.|-1|0
+ACPT|null|My decision was in the right! Hang the fools that dare question my authority!|0|-1
+ACPT|null|Since it is my duty, I will listen to their grievances.|1|0
+ACPT|null|I don't want to deal with this! My decision was final. Make them go away!|-1|0
+ACPT|null|I cannot allow these people to suffer! I will hear them out and help however I can!|0|1
+TURN|null|I will not allow such an operation to continue... without giving me part of the profits! They can continue what they are doing, but I get my piece.|0|-1
+TURN|null|For the crime of peddling drugs, the instigators will be hung as per the laws of this land!|1|0
+TURN|null|Innocent people have suffered because of their deeds. This operation stops now!|0|1
+TURN|null|My people have chosen to partake in this drug of their own volition. It is not my place to tell others how to live. They may continue the operation.|-1|0

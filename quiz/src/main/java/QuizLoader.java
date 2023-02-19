@@ -30,6 +30,8 @@ public class QuizLoader {
         while (sceneReader.hasNextLine()) {
             String[] line = sceneReader.nextLine().split("\\|");
 
+
+
             try {
                 String identifier = line[0];
 

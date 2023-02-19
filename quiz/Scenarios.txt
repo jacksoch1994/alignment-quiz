@@ -1,1 +1,1 @@
-STRT|You are an adventurer taking odd-jobs to get by.
+GOVT|Through some twist of fate, you have come to be the governor of a small city-state. The decisions you make will determine the fate of your people. How will you govern? For your people or your ideals? For the greater good, or yourself?
