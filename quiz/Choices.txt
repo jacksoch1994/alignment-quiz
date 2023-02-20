@@ -1,11 +1,28 @@
 GOVT|TURN|This technology is not worth the potential risk to our stability. My people must come first. Turn him away.|1|0
 GOVT|ACPT|I do not care one way or the other. Let them do as they please.|0|0
 GOVT|ACPT|The potential for this land's growth is worth the risk to stability. My people will make due.|-1|0
-ACPT|null|My decision was in the right! Hang the fools that dare question my authority!|0|-1
-ACPT|null|Since it is my duty, I will listen to their grievances.|1|0
-ACPT|null|I don't want to deal with this! My decision was final. Make them go away!|-1|0
-ACPT|null|I cannot allow these people to suffer! I will hear them out and help however I can!|0|1
-TURN|null|I will not allow such an operation to continue... without giving me part of the profits! They can continue what they are doing, but I get my piece.|0|-1
-TURN|null|For the crime of peddling drugs, the instigators will be hung as per the laws of this land!|1|0
-TURN|null|Innocent people have suffered because of their deeds. This operation stops now!|0|1
-TURN|null|My people have chosen to partake in this drug of their own volition. It is not my place to tell others how to live. They may continue the operation.|-1|0
+ACPT|REBL|They dare call for my resignation!? Hang the fools that dare question my authority!|0|-1
+ACPT|TALK|Since it is my duty, I will listen to their grievances.|1|0
+ACPT|REBL|My decision was final. They will deal with my decision.|0|0
+ACPT|REBL|It's my duty to listen to them? I don't feel like listening to these crybabies! Get them out of here!|-1|0
+ACPT|TALK|I cannot allow these people to suffer! I will hear them out and help however I can!|0|1
+TURN|DRUG|I will not allow such an operation to continue... without giving me part of the profits! They can continue what they are doing, but I get my piece.|0|-1
+TURN|CURB|For the crime of peddling drugs, the instigators will be hung as per the laws of this land!|1|0
+TURN|CURB|Innocent people have suffered because of their deeds. This operation stops now!|0|1
+TURN|DRUG|My people have chosen to partake in this drug of their own volition. It is not my place to tell others how to live. They may continue the operation.|-1|0
+REBL|ETHL|I will not stand for this blatant disrespect to my authority! I will have them rounded up and executed!|1|-1
+REBL|ETHL|These people are misguided, but we cannot allow them to continue disturbing the peace. I will have my guards disperse the crowds, but only the truly malicious will be punished.|1|1
+REBL|ETHC|Let them protest! If the other townsfolk don't like it, they can deal with the destruction themselves!|-1|-1
+REBL|ETHC|They can protest my authority if they so desire, but I will not allow them to harm others. I will have the guard stop only the violent protesters.|-1|1
+TALK|ETKL|The choices I have made were made for the greater good of this city. I will not undo my decision, but I will implement systems to allow these people to integrate into new careers.|1|1
+TALK|ETKL|How dare they question my decisions as ruler! For the crime of treason, I sentence them to death!!|1|-1
+TALK|ETKC|They're right, it's not fair to take away their livelihoods. We will get rid of the technology. We already shook up the city by changing things once, why not do it again for a good cause?|-1|1
+TALK|ETKC|You know what? Why not? Let's shake things up again and take the tech away. I don't care the people hate it! Seeing the people react to all these changes is too much fun!|-1|-1
+DRUG|ENEL|I have chosen to allow this substance to be used in my city, but I have no right to impact another. I will put into place regulations that will prevent intercity trade.|1|1
+DRUG|ENEC|I have the sole right to chose how my city is governed. If your people are harmed by what happens in my city, it is their concern, not mine.|1|-1
+DRUG|ENEL|My people have the right to do as they please, and I will not force them to stop. However, I can speak to them about how their decisions may impact others and let them make the decision themselves.|-1|1
+DRUG|ENEC|Oh please, like I care how this impacts THEM. My city is run the way I feel like running it. I do as I like, whenever I like.|-1|-1
+CURB|ECOL|The laws I put into place are for the good of the people, and it is my duty both to protect them and safeguard their happiness. I will not change my position.|1|1
+CURB|ECOL|The way that my citizens want to be governed is of no concern to me. This city is mine, not theirs! I know best, and I will not allow them to question my decisions!|1|-1
+CURB|ECOC|My regulation is way too overbearing. Let the people do what they want and be happy! I will loosen the regulations for substances that do not cause long-lasting harm.|-1|1
+CURB|ECOC|You know what, why not? Honestly, if you get hurt it's your fault, not mine. Let's do away with substance regulation altogether!|-1|-1

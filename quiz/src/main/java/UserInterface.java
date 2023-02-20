@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    private final int MAX_LINE_CHARACTER_COUNT = 88;
+    private final int MAX_LINE_CHARACTER_COUNT = 152;
 
     Scanner in = new Scanner(System.in);
 
@@ -89,6 +89,43 @@ public class UserInterface {
         }
 
         System.out.println(output);
+    }
+
+
+    public void printBranch(String leftDesc, String rightDesc) {
+        StringBuilder output = new StringBuilder();
+
+        String[] words = rightDesc.split(" ");
+        String leftBuffer = "           ";
+        String pipe = "||            ";
+
+        int lineCount = output.length();
+
+        output.append(leftBuffer + pipe + "\n");
+        output.append(leftBuffer + pipe + "\n");
+        output.append(leftBuffer + pipe + "[" + leftDesc + "]" + "\n");
+        output.append(leftBuffer + pipe);
+
+
+        for (String word : words) {
+
+            if (word.length() + lineCount > MAX_LINE_CHARACTER_COUNT - leftBuffer.length() - pipe.length()) {
+                output.append("\n" + leftBuffer + pipe);
+                lineCount = word.length() + 1;
+            }
+
+            output.append(word);
+            output.append(" ");
+            lineCount += word.length() + 1;
+
+        }
+
+        output.append("\n" + leftBuffer + pipe + "\n");
+        output.append("          \\  / \n");
+        output.append(leftBuffer + "\\/");
+
+        System.out.println(output);
+
     }
 
 

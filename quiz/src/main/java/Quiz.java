@@ -1,6 +1,4 @@
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Quiz {
 
@@ -14,6 +12,7 @@ public class Quiz {
     private Scanner in = new Scanner(System.in);
     private List<Scenario> scenarios;
     private Map<String, Alignment> alignments;
+    private Queue<Integer> choiceHistory = new LinkedList<>();
     private int playerLawChaosScore = 0;
     private int playerGoodEvilScore = 0;
 
@@ -59,32 +58,44 @@ public class Quiz {
 
             UI.banner();
 
+            //End of Scenario if current scene has no choices
+            if (currentScene.getChoices().size() == 0) {
+                UI.display("SCENARIO END\n");
+                UI.display(currentScene.getDescription());
+                UI.promptWithAcknowledgement("\nPress (ENTER) to continue...");
+                return;
+            }
+
             UI.display(currentScene.getDescription());
             UI.display("\nWhat do you do?\n");
+
+            //If scene has no choices, end of scenario.
+
 
             int selectedChoiceIndex = UI.getUserChoice(currentScene);
             updateScore(currentScene.getChoice(selectedChoiceIndex));
             currentScene = currentScene.nextScene(selectedChoiceIndex);
+            choiceHistory.add(selectedChoiceIndex);
         }
     }
 
     //Check results and return appropriate alignment object
-    private Alignment getAlignment() {
+    private Alignment getAlignment(int lawChaos, int goodEvil) {
         StringBuilder alignmentID = new StringBuilder();
 
         //Law-Chaos Prefix
-        if (playerLawChaosScore <= -1 * MIN_ALIGNMENT_VAL) {
+        if (lawChaos <= -1 * MIN_ALIGNMENT_VAL) {
             alignmentID.append("C");
-        } else if (playerLawChaosScore >= MIN_ALIGNMENT_VAL) {
+        } else if (lawChaos >= MIN_ALIGNMENT_VAL) {
             alignmentID.append("L");
         } else {
             alignmentID.append("N");
         }
 
         //Good-Evil Suffix
-        if (playerGoodEvilScore <= -1 * MIN_ALIGNMENT_VAL) {
+        if (goodEvil <= -1 * MIN_ALIGNMENT_VAL) {
             alignmentID.append("E");
-        } else if (playerGoodEvilScore >= MIN_ALIGNMENT_VAL) {
+        } else if (goodEvil >= MIN_ALIGNMENT_VAL) {
             alignmentID.append("G");
         } else {
             if (!alignmentID.toString().equals("N")) alignmentID.append("N");
@@ -93,6 +104,7 @@ public class Quiz {
         return alignments.get(alignmentID.toString());
 
     }
+    
 
     private void results() {
         if (alignments.isEmpty()) {
@@ -101,7 +113,7 @@ public class Quiz {
 
         UI.banner();
 
-        Alignment result = getAlignment();
+        Alignment result = getAlignment(playerLawChaosScore, playerGoodEvilScore);
         UI.display("Final Results...\n");
         UI.display(String.format("Your alignment is: %s.\n", result.getName().toUpperCase()));
 
@@ -120,10 +132,42 @@ public class Quiz {
             UI.display("-- " + deity);
         }
 
+        UI.promptWithAcknowledgement("\nPress (ENTER) to continue...");
+
         UI.banner();
+
+
+        displayChoiceTree();
 
         UI.display("THANKS FOR PLAYING!!!!");
 
+    }
+
+    private void displayChoiceTree() {
+
+        for (Scenario scenario : scenarios) {
+            UI.display("CHOICE HISTORY FOR SCENARIO: \n");
+            UI.display(scenario.getDescription() + "\n");
+
+            Scene currentScene = scenario.getStartScene();
+            do {
+
+                int choiceIndex = choiceHistory.remove();
+                Choice choice = currentScene.getChoice(choiceIndex);
+                Alignment choiceAlignment = getAlignment(choice.getLawChaosModifier(), choice.getGoodEvilModifier());
+
+                UI.display(currentScene.getDescription());
+                UI.printBranch(choiceAlignment.getName(), choice.getDescription());
+
+                currentScene = currentScene.nextScene(choiceIndex);
+            } while (currentScene.getChoices().size() != 0);
+
+            UI.display(currentScene.getDescription());
+
+            UI.promptWithAcknowledgement("\nPress (ENTER) to continue...");
+
+        }
+        
     }
 
 
