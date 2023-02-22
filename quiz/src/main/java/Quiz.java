@@ -49,8 +49,8 @@ public class Quiz {
 
     private void runScenario(Scenario scenario) {
         UI.display("Next scenario: \n");
-        UI.display(scenario.getDescription() + "\n");
-        UI.promptWithAcknowledgement("Press (ENTER) to continue...");
+        UI.display(scenario.getDescription());
+        UI.promptWithAcknowledgement("\nPress (ENTER) to continue...");
 
         Scene currentScene =  scenario.getStartScene();
 
@@ -118,9 +118,9 @@ public class Quiz {
         UI.display(String.format("Your alignment is: %s.\n", result.getName().toUpperCase()));
 
         UI.display("Description: ");
-        UI.displayParagraph(result.getDescription() + "\n");
+        UI.display(result.getDescription());
 
-        UI.display(String.format("The Outer Plane (i.e. Afterlife) for characters of your alignment is: \n-- %s\n", result.getOuterPlane()));
+        UI.display(String.format("\nThe Outer Plane (i.e. Afterlife) for characters of your alignment is: \n-- %s\n", result.getOuterPlane()));
         UI.display("Extraplanar beings of this alignment you might find in the Outer Planes: ");
         for (String outsider : result.getOutsiders()) {
             UI.display("-- " + outsider);
@@ -147,7 +147,7 @@ public class Quiz {
 
         for (Scenario scenario : scenarios) {
             UI.display("CHOICE HISTORY FOR SCENARIO: \n");
-            UI.display(scenario.getDescription() + "\n");
+            UI.display(scenario.getDescription() + " \n");
 
             Scene currentScene = scenario.getStartScene();
             do {
